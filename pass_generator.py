@@ -16,26 +16,28 @@ def main():
 
     while True: 
         try:   
-            print("Hey, I can generate password. Enter password length (must be at least 5 characters):")
+            print("Hey, I can generate password. Enter password length (must be at least 5 characters):\n")
             pass_length = int(input())
             if pass_length > 4:
                 password = pass_gen(pass_length)
-                print(f"Your new password is: {password}")
+                print(f"Your new password is: {password}\n")
                 break
     
         except ValueError:
             print("Please enter a valid number.")
 
+
     try:
         print("Which service or platform is this password for? (Discord, Gmail etc.):\n")
         service_name = input()
+        #possible char limit to add.
     except ValueError:
         print("Invalid service name.")
     
 
     while True:
         try:
-            print("Do you want to save your password? y/n")
+            print("Do you want to save your password? y/n \n")
             save_choice = input()
             if save_choice == "n":
                 return
