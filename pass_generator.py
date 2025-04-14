@@ -12,6 +12,7 @@ def main():
     pass_length = 0
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     save_choice = "n"
+    service_name = ""
 
     while True: 
         try:   
@@ -25,6 +26,13 @@ def main():
         except ValueError:
             print("Please enter a valid number.")
 
+    try:
+        print("Which service or platform is this password for? (Discord, Gmail etc.):\n")
+        service_name = input()
+    except ValueError:
+        print("Invalid service name.")
+    
+
     while True:
         try:
             print("Do you want to save your password? y/n")
@@ -33,7 +41,7 @@ def main():
                 return
             elif save_choice == "y":
                 with open("my_passwords.txt", "a") as file:
-                    file.write(f"{current_time} : {password}\n")
+                    file.write(f"{current_time} | {service_name} | {password}\n")
                 break
             else:
                 print("Sorry, wrong answer.")
